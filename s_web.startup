@@ -1,0 +1,6 @@
+#!/bin/bash
+echo 'Démarrage de s_web avec IP: 172.16.192.1'
+ip a add 172.16.192.1/20 dev eth0
+#!/bin/bash.
+ip route add default via 172.16.201.2
+

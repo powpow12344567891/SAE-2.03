@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 'Démarrage de s_demo avec IP: 172.16.192.3'
+ip a add 172.16.192.3/20 dev eth0
+ip route add default via 172.16.202.1

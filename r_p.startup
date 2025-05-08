@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 'Démarrage de r_p avec IP: 172.16.196.3'
+ip a add 172.16.196.3/24 dev eth0
+ip route add default via 172.16.196.1

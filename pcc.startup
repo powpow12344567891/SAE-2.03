@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 'Démarrage de pcc avec IP: 172.16.197.1'
+ip a add 172.16.197.1/22 dev eth0
+ip route add default via 172.16.200.1
