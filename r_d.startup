@@ -1,6 +1,6 @@
 #!/bin/bash
 sysctl -w net.ipv4.ip_forward=1
-ip addr add 172.16.201.2/20 dev eth0  # net13
-ip addr add 172.16.202.1/20 dev eth1  # net14
+ip addr add 172.16.192.254/20 dev eth0   # net13
+ip addr add 172.16.192.253/20 dev eth1   # net14
 ip link set eth0 up
 ip link set eth1 up

@@ -1,4 +1,6 @@
 #!/bin/bash
-echo 'Démarrage de sf avec IP: 172.16.192.4'
+
+echo "Démarrage de sf avec IP: 172.16.192.4"
 ip addr add 172.16.192.4/20 dev eth0
-ip route add default via 172.16.202.1
+ip link set eth0 up
+ip route add default via 172.16.192.253
