@@ -1,6 +1,4 @@
 #!/bin/bash
-
-echo "Démarrage de s_admin avec IP: 172.16.192.2"
-ip addr add 172.16.192.2/20 dev eth0
+ip a add 172.16.195.2/22 dev eth0
 ip link set eth0 up
-ip route add default via 172.16.192.253
+ip route add default via 172.16.195.1

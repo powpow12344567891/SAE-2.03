@@ -1,0 +1,2 @@
+ip address add 172.16.202.6/30 dev eth0
+ip address add 172.16.192.3/23 dev eth1

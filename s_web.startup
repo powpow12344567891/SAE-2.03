@@ -1,8 +1,4 @@
 #!/bin/bash
-echo 'Démarrage de s_web avec IP: 172.16.192.1'
-ip a add 172.16.192.1/20 dev eth0
-ip link set eth0 up
-
-#!/bin/bash.
-ip route add default via 172.16.192.254
-
+ip a add 172.16.192.1/23 dev eth0
+ip route add default via 172.16.192.3
+ip route add 172.16.192.0/23 via 172.16.202.14

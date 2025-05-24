@@ -1,4 +1,12 @@
 #!/bin/bash
-ip a add 172.16.201.3/24 dev eth0
-ip a add 172.16.201.4/24 dev eth1
-ip route add 172.16.192.0/22 via 172.16.201.2
+ip a add 172.16.202.13/22 dev eth0
+ip a add 172.16.192.3/23 dev eth1
+ip link set eth0 up
+ip link set eth1 up
+ip route add default via 172.16.202.5
+ ip route add 172.16.192.0/22 dev eth1   # Pour joindre s_web
+  # si connecté à r
+ip route add 172.16.195.0/23 via 172.16.195.1
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+

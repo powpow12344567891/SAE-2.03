@@ -1,0 +1,1 @@
+ip address add 172.16.192.10/23 dev eth0
