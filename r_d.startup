@@ -2,6 +2,10 @@
 ip a add 172.16.192.5/23 dev eth0
 ip a add 172.16.195.1/22 dev eth1
 ip link set eth1 up
-ip link set eth0 up
+IP link set eth0 up
+ip route add 172.16.172.0/23 via 172.16.192.3
+
+#ip route add 172.16.202.0/22 via 172.16.195.0
+#ip route add 172.16.195.0/22 via 172.16.192.1
 
 echo 1 > /proc/sys/net/ipv4/ip_forward

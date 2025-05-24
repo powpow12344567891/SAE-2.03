@@ -1,4 +1,4 @@
 #!/bin/bash
 ip a add 172.16.192.1/23 dev eth0
 ip route add default via 172.16.192.3
-ip route add 172.16.192.0/23 via 172.16.202.14
+ip route add 172.16.195.0/22 via 172.16.192.14

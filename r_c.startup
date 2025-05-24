@@ -2,4 +2,7 @@
 ip a add 172.16.202.10/30 dev eth0
 ip a add 172.16.197.254/22 dev eth1
 ip route add default via 172.16.202.9
+# Sur r_c (ajoute à la fin de r_c.startup)
+ip route add 172.16.192.0/22 via 172.16.195.1   # vers r_s/r_d
+ip route add 172.16.196.0/22 via 172.16.194.2    # vers r_p
 echo 1 > /proc/sys/net/ipv4/ip_forward
