@@ -3,9 +3,9 @@ ip a add 172.16.202.1/30 dev eth0
 ip a add 172.16.202.5/30 dev eth1
 ip a add 172.16.202.9/30 dev eth2
 ip a add 172.16.202.13/30 dev eth3
-# Sur r (ajoute à la fin de r.startup)
-ip route add 172.16.192.0/22 via 172.16.202.9    # vers r_s/r_d
-ip route add 172.16.195.0/22 via 172.16.202.9    # vers r_d
-ip route add 172.16.196.0/22 via 172.16.202.13   # vers r_p
-ip route add 172.16.197.0/22 via 172.16.202.5    # vers r_c
+
+ip route add 172.16.192.0/23 via 172.16.202.13    # vers r_s/r_d
+ip route add 172.16.195.0/22 via 172.16.202.13   # vers r_d
+ip route add 172.16.196.0/24 via 172.16.202.12   # vers r_p
+ip route add 172.16.197.0/22 via 172.16.202.10   # vers r_c
 echo 1 > /proc/sys/net/ipv4/ip_forward

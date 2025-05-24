@@ -5,7 +5,7 @@ ip link set eth1 up
 IP link set eth0 up
 
 ip route add 172.16.192.0/23 via 172.16.192.3 # vers s web
-ip route add 172.16.196.0/23 via 172.16.192.3 # vers pca pcb
-ip route add 172.16.197.0/23 via 172.16.192.3 # vers pcc pcd
+ip route add 172.16.196.0/24 via 172.16.192.3 # vers pca pcb
+ip route add 172.16.197.0/22 via 172.16.192.3 # vers pcc pcd
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
