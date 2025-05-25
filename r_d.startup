@@ -1,11 +1,8 @@
 #!/bin/bash
-ip a add 172.16.192.5/23 dev eth0
-ip a add 172.16.195.1/22 dev eth1
+ip a add 172.16.192.5/22 dev eth0    # vers net4
+ip a add 172.16.195.1/22 dev eth1    # vers net5
+ip link set eth0 up
 ip link set eth1 up
-IP link set eth0 up
 
-ip route add 172.16.192.0/23 via 172.16.192.3 # vers s web
-ip route add 172.16.196.0/24 via 172.16.192.3 # vers pca pcb
-ip route add 172.16.197.0/22 via 172.16.192.3 # vers pcc pcd
-
+ip route add default via 172.16.192.13
 echo 1 > /proc/sys/net/ipv4/ip_forward

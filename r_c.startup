@@ -1,8 +1,7 @@
 #!/bin/bash
-ip a add 172.16.202.10/30 dev eth0
-ip a add 172.16.197.254/22 dev eth1
-ip route add default via 172.16.202.9
-ip route add 172.16.192.0/22 via 172.16.202.9    # vers r_s/r_d
-ip route add 172.16.195.0/22 via 172.16.202.9   # vers r_d
-ip route add 172.16.196.0/24 via 172.16.202.9   # vers r_p
+ip a add 172.16.210.10/28 dev eth0   # net2 vers r
+ip a add 172.16.197.254/22 dev eth1  # vers net6
+ip link set eth0 up
+ip link set eth1 up
+ip route add default via 172.16.210.9
 echo 1 > /proc/sys/net/ipv4/ip_forward
