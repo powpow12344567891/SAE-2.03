@@ -1,10 +1,12 @@
 #!/bin/bash
-ip a add 172.16.210.2/28 dev eth0    # net1 vers r
+ip a add 172.16.210.2/30 dev eth0    # net1 vers r
 ip a add 172.16.192.3/22 dev eth1    # vers net4
 ip link set eth0 up
 ip link set eth1 up
-# Ajoute ces lignes après l'activation des interfaces
+ip route add 172.16.195.0/22 via 172.16.192.5    # vers net7 via r
+ip route add 172.16.196.0/24 via 172.16.192.5   
+ip route add 172.16.197.0/23 via 172.16.192.5  
 ip route add 172.16.196.0/24 via 172.16.210.1    # vers net7 via r
 ip route add 172.16.197.0/22 via 172.16.210.1    # vers net6 via r
-ip route add default via 172.16.210.2
+   
 echo 1 > /proc/sys/net/ipv4/ip_forward
