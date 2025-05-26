@@ -4,5 +4,5 @@ ip a add 172.16.196.254/24 dev eth1  # vers net7
 ip link set eth0 up
 ip link set eth1 up
 ip route add 172.16.192.0/22 via 172.16.210.5    # vers net4/net5 via r
-ip route add 172.16.197.0/22 via 172.16.210.5    # vers net6 via r
+ip route add 172.16.193.0/24 via 172.16.210.5    # vers net6 via r
 echo 1 > /proc/sys/net/ipv4/ip_forward
