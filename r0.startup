@@ -1,0 +1,8 @@
+ip addr add 172.16.210.13/30 dev eth0
+ip link set eth0 up
+
+# Activer le routage
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Simuler Internet avec un NAT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
