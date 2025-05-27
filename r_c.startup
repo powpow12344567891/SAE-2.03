@@ -1,8 +1,31 @@
 #!/bin/bash
-ip a add 172.16.210.10/30 dev eth0   # net2 vers r (même masque que r)
-ip a add 172.16.193.254/24 dev eth1  # vers net6
+
+# Configuration IP
+ip a add 172.16.210.10/30 dev eth0   # vers r
+ip a add 172.16.193.254/24 dev eth1  # vers clients
 ip link set eth0 up
 ip link set eth1 up
-ip route add 172.16.192.0/22 via 172.16.210.9    # via r
-ip route add 172.16.196.0/24 via 172.16.210.9    # via r
+
+# Routes
+ip route add default via 172.16.210.9 
+ip route add 172.16.192.0/22 via 172.16.210.9
+ip route add 172.16.196.0/24 via 172.16.210.9
+
+# Activer le routage
 sysctl -w net.ipv4.ip_forward=1
+
+# DHCP Server
+apt update && apt install -y isc-dhcp-server
+echo 'INTERFACESv4="eth1"' > /etc/default/isc-dhcp-server
+cat > /etc/dhcp/dhcpd.conf <<EOF
+default-lease-time 600;
+max-lease-time 7200;
+authoritative;
+
+subnet 172.16.193.0 netmask 255.255.255.0 {
+  range 172.16.193.100 172.16.193.200;
+  option routers 172.16.193.254;
+  option domain-name-servers 8.8.8.8;
+}
+EOF
+service isc-dhcp-server restart
