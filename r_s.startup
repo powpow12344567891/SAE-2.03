@@ -1,14 +1,25 @@
 #!/bin/bash
+
+# Lien vers le routeur central
 ip addr add 172.16.210.2/30 dev eth0
 ip link set eth0 up
 
-ip addr add 172.16.192.3/23 dev eth1 
+# Lien vers le réseau serveurs/démo (net4/net5)
+ip addr add 172.16.192.3/23 dev eth1
 ip link set eth1 up
 
+# Activer le routage IP
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-# Routes statiques
+# Routage :
+# - Par défaut, tout vers le routeur central
 ip route add default via 172.16.210.1
+
+# - Pour joindre le réseau démo (net5) via r_d
 ip route add 172.16.195.0/23 via 172.16.192.5
-ip route add 172.16.196.0/24 via 172.16.210.1
-ip route add 172.16.193.0/24 via 172.16.210.1
+
+# - Pour joindre le réseau personnel (net7) via r_d
+ip route add 172.16.196.0/24 via 172.16.192.5
+
+# - Pour joindre le réseau clients (net6) via r_d
+ip route add 172.16.193.0/24 via 172.16.192.5
