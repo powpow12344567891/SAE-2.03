@@ -1,11 +1,11 @@
 #!/bin/bash
-ip a add 172.16.192.5/22 dev eth0    # vers net4
+ip a add 172.16.192.5/23 dev eth0    # vers net4 (doit être /23 comme sur r_s)
 ip a add 172.16.195.1/23 dev eth1    # vers net5
 ip link set eth0 up
 ip link set eth1 up
 
-ip route add default via 172.16.192.3
-ip route add 172.16.196.0/24 via 172.16.192.3    # via r_s
-ip route add 172.16.193.0/22 via 172.16.192.3    # via r_s
+ip route add default via 172.16.192.3            # r_s comme gateway principale
+ip route add 172.16.196.0/24 via 172.16.192.3    # vers net7 via r_s
+ip route add 172.16.193.0/24 via 172.16.192.3    # vers net6 via r_s
 
 echo 1 > /proc/sys/net/ipv4/ip_forward

@@ -8,7 +8,7 @@ ip link set eth1 up
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 # Routes
 ip route add default via 172.16.210.9 
-ip route add 172.16.192.0/22 via 172.16.210.9
+ip route add 172.16.192.0/23 via 172.16.210.9
 ip route add 172.16.195.0/23 via 172.16.210.9
 
 ip route add 172.16.196.0/24 via 172.16.210.9
