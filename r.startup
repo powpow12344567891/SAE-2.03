@@ -8,6 +8,8 @@ ip link set eth2 up
 ip route add default via 172.17.0.1 dev eth4
 
 ip route add 172.16.192.0/22 via 172.16.210.2   # via r_s
+ip route add 172.16.195.0/23 via 172.16.210.2   # via r_s
+
 ip route add 172.16.196.0/24 via 172.16.210.6  # via r_p
 ip route add 172.16.193.0/24 via 172.16.210.10
 
