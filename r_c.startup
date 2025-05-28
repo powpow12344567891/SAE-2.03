@@ -1,15 +1,13 @@
-#!/bin/bash
 
-# Configuration IP
-ip a add 172.16.210.10/30 dev eth0   # vers r
-ip a add 172.16.193.254/24 dev eth1  # vers clients
+ip a add 172.16.210.10/30 dev eth0   
+ip a add 172.16.193.254/24 dev eth1  
 ip link set eth0 up
 ip link set eth1 up
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
-# Routes
+
+
 ip route add default via 172.16.210.9 
 
-# Activer le routage
 sysctl -w net.ipv4.ip_forward=1
 echo "nameserver 8.8.8.8" > /etc/resolv.conf 
 

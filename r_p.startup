@@ -1,4 +1,4 @@
-#!/bin/bash
+
 ip a add 172.16.210.6/30 dev eth0  
 ip a add 172.16.196.254/24 dev eth1  
 ip link set eth0 up

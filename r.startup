@@ -1,13 +1,12 @@
-#!/bin/bash
 ip a add 172.16.210.1/30 dev eth1   
 ip a add 172.16.210.5/30 dev eth3    
 ip a add 172.16.210.9/30 dev eth2    
 ip link set eth3 up
 ip link set eth1 up
 ip link set eth2 up
-ip route add 172.16.192.0/23 via 172.16.210.2   # via r_s
-ip route add 172.16.195.0/24 via 172.16.210.2   # via r_s
-ip route add 172.16.196.0/24 via 172.16.210.6  # via r_p
+ip route add 172.16.192.0/23 via 172.16.210.2   
+ip route add 172.16.195.0/24 via 172.16.210.2   
+ip route add 172.16.196.0/24 via 172.16.210.6  
 ip route add 172.16.193.0/24 via 172.16.210.10
 
 

@@ -6,8 +6,8 @@ ip link set eth1 up
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
 ip route add default via 172.16.210.1
-ip route add 172.16.196.0/24 via 172.16.210.6  # vers r_p
+ip route add 172.16.196.0/24 via 172.16.210.6  
 
-ip route add 172.16.193.0/24 via 172.16.210.1 # vers r_c
+ip route add 172.16.193.0/24 via 172.16.210.1
 ip route add 172.16.195.0/24 via 172.16.192.5
 echo "nameserver 8.8.8.8" > /etc/resolv.conf 
