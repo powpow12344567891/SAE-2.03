@@ -8,15 +8,11 @@ ip link set eth1 up
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 # Routes
 ip route add default via 172.16.210.9 
-ip route add 172.16.192.0/23 via 172.16.210.9
-ip route add 172.16.195.0/23 via 172.16.210.9
-
-ip route add 172.16.196.0/24 via 172.16.210.9
 
 # Activer le routage
 sysctl -w net.ipv4.ip_forward=1
+echo "nameserver 8.8.8.8" > /etc/resolv.conf 
 
-# DHCP Server
 apt update && apt install -y isc-dhcp-server
 echo 'INTERFACESv4="eth1"' > /etc/default/isc-dhcp-server
 cat > /etc/dhcp/dhcpd.conf <<EOF
@@ -25,9 +21,9 @@ max-lease-time 7200;
 authoritative;
 
 subnet 172.16.193.0 netmask 255.255.255.0 {
-  range 172.16.193.100 172.16.193.200;
+  range 172.16.193.001 172.16.193.200;
   option routers 172.16.193.254;
   option domain-name-servers 8.8.8.8;
 }
 EOF
-service isc-dhcp-server restart
+systemctl restart isc-dhcp-server
