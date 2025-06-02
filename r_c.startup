@@ -25,3 +25,4 @@ subnet 172.16.193.0 netmask 255.255.255.0 {
 }
 EOF
 systemctl restart isc-dhcp-server
+echo "nameserver 8.8.8.8" > /etc/resolv.conf

@@ -1,2 +1,5 @@
 ip link set eth0 up
 dhclient eth0
+
+
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
